@@ -1,3 +1,6 @@
+// Github Link - https://github.com/joshbeasley/react-trivia-game
+// Github Kanban Board - https://github.com/users/joshbeasley/projects/2/views/1
+//-----------------------------------------------------------App.js-------------------------------------------------------------------//
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
