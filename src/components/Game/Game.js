@@ -48,7 +48,6 @@ const Game = () => {
     <Dashboard /> :
     <>
       <div>
-        
         {questions.map((question, idx) => {
           if (idx === currentQuestionIndex) {
             return <Question question={question} />;
@@ -60,7 +59,6 @@ const Game = () => {
       </div>
       <button onClick={handleClick}>Next Question</button>
     </>
-
   )
 }
 
