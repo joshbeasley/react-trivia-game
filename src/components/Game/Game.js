@@ -5,8 +5,8 @@ import './Game.css'
 import Dashboard from '../Dashboard/Dashboard'
 
 const Game = () => {
-  const [questions, setQuestions] = React.useState([])
-  const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0)
+  const [questions, setQuestions] = useState([])
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   // const [currentQuestion, setCurrentQuestion] = React.useState([])
   // const [score, setScore] = React.useState(0)
 
@@ -47,11 +47,10 @@ const Game = () => {
     currentQuestionIndex >= numQuestions ? 
     <Dashboard /> :
     <>
-      <div>
-        
+      <div className='question-container'>
         {questions.map((question, idx) => {
           if (idx === currentQuestionIndex) {
-            return <Question question={question} />;
+            return <Question key={idx} question={question} />;
           }
           else {
             return <></>
