@@ -1,7 +1,7 @@
 import React from 'react'
 import './Question.css'
 
-const Question = () => {
+const Question = ({question}) => {
   // props:
   // - individual question
 
@@ -12,7 +12,7 @@ const Question = () => {
   //   - increments current question
   //   - increments num questions correct if question was correct
   return (
-    <div>Question</div>
+    <div>Question: {question.question}</div>
   )
 }
 
