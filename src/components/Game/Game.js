@@ -7,8 +7,7 @@ import Dashboard from '../Dashboard/Dashboard'
 const Game = () => {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  // const [currentQuestion, setCurrentQuestion] = React.useState([])
-  // const [score, setScore] = React.useState(0)
+  const [questionsAnswered, setQuestionsAnswered] = useState([]);
 
   const location = useLocation();
   const { numQuestions, category, difficulty, type } = location.state;
@@ -37,28 +36,27 @@ const Game = () => {
         console.log(data)
       })
       .catch(err => alert("ERROR:", err))
-  }, [])
+  }, [numQuestions, category, difficulty, type])
 
-  const handleClick = () => {
+  const handleClick = (event, correct) => {
+    event.preventDefault();
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setQuestionsAnswered([...questionsAnswered, correct])
   }
  
   return (
     currentQuestionIndex >= numQuestions ? 
     <Dashboard /> :
-    <>
-      <div className='question-container'>
-        {questions.map((question, idx) => {
-          if (idx === currentQuestionIndex) {
-            return <Question key={idx} question={question} />;
-          }
-          else {
-            return <></>
-          }
-        })}
-      </div>
-      <button onClick={handleClick}>Next Question</button>
-    </>
+    <div className='question-container'>
+      {questions.map((question, idx) => {
+        if (idx === currentQuestionIndex) {
+          return <Question key={idx} question={question} handleClick={handleClick}/>;
+        }
+        else {
+          return <></>
+        }
+      })}
+    </div>
 
   )
 }
