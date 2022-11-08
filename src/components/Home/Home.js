@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState} from 'react'
 import './Home.css'
 
 const Home = () => {
@@ -9,20 +9,6 @@ const Home = () => {
   const [category, setCategory] = useState('Any');
   const [difficulty, setDifficulty] = useState('Any');
   const [type, setType] = useState('Any');
-  
-  // state:
-  // - numQuestions
-  // - category
-  // - difficulty
-  // - type
-
-  // handleChangeQuestions
-  // handleChangeCategory
-  // handleChangeDifficulty
-  // handleChangeType
-
-  // return
-  // Link that passes all of Home's State to Game
 
   const handleQuestionsChange = (event) => {
     setNumQuestions(event.target.value);
@@ -38,7 +24,9 @@ const Home = () => {
   }
 
   return (
+    
     <div className='form'>
+      <h1 style={{textAlign: 'center'}}>Welcome to ReacTrivia! </h1>
       <form>
         <div className="form-group">
           <label htmlFor="enter-num-questions">Number of Questions:</label>

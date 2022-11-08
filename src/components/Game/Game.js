@@ -44,7 +44,7 @@ const Game = () => {
     <div className='question-container'>
       {questions.map((question, idx) => {
         if (idx === currentQuestionIndex) {
-          return <Question key={idx} question={question} handleClick={handleClick}/>;
+          return <Question key={idx} question={question} handleClick={handleClick} currentQuestionIndex={currentQuestionIndex} numQuestions={numQuestions} />;
         }
         else {
           return <></>

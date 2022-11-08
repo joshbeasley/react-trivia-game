@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Question.css";
 import styled from "styled-components";
+import {decode} from 'html-entities';
 
 const Radio = styled.div`
   color: ${props => props.correct ? "green" : "red"};
 `;
 
-const Question = ({ question, handleClick }) => {
-	// props:
-	// - individual question
+const Question = ({ question, handleClick, currentQuestionIndex, numQuestions }) => {
 
 	const shuffleAnswers = () => {
-		let answers = [...question.incorrect_answers, question.correct_answer];
+    let incorrect_answers = question.incorrect_answers.map(answer => decode(answer));
+		let answers = [...incorrect_answers, decode(question.correct_answer)];
 		return answers.sort((a, b) => 0.5 - Math.random());
 	};
 	const [answers, setAnswers] = useState(shuffleAnswers());
@@ -55,10 +55,11 @@ const Question = ({ question, handleClick }) => {
 		<div className="question">
 			<div className="top-bar">
 				<div>{question.category}</div>
+        <div>Question: {currentQuestionIndex + 1}/{numQuestions}</div>
 				<div>Difficulty: {capitalizeFirst(question.difficulty)}</div>
 			</div>
 
-			<div className="question-text">Question: {question.question}</div>
+			<div className="question-text" style={{fontWeight: "bolder"}}>Question: {decode(question.question)}</div>
 			<div onChange={handleChange}>
 				{answers.map((answer, index) => {
           if(answered){
@@ -102,9 +103,9 @@ const Question = ({ question, handleClick }) => {
 				}
       </div>
 			<div className="buttons">
-        <Link to='/'><button className="btn btn-danger btn-lg">Give up</button></Link>
-        {answered ? <button className="btn btn-primary btn-lg" onClick={handleNextQuestionClick}>Next Question</button> :
-         <button className="btn btn-primary btn-lg" onClick={handleSubmitClick}>Submit</button>
+        <Link to='/'><button className="btn btn-danger btn-lg px-5">Give up</button></Link>
+        {answered ? <button className="btn btn-primary btn-lg px-5" onClick={handleNextQuestionClick}>Next Question</button> :
+         <button className="btn btn-primary btn-lg px-5" onClick={handleSubmitClick}>Submit</button>
         }
 			</div>
 		</div>
