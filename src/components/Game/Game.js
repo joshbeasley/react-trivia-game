@@ -5,20 +5,13 @@ import './Game.css'
 import Dashboard from '../Dashboard/Dashboard'
 
 const Game = () => {
-  const [questions, setQuestions] = React.useState([])
-  const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0)
-  // const [currentQuestion, setCurrentQuestion] = React.useState([])
-  // const [score, setScore] = React.useState(0)
+  const [questions, setQuestions] = useState([])
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const [questionsAnswered, setQuestionsAnswered] = useState([]);
 
   const location = useLocation();
   const { numQuestions, category, difficulty, type } = location.state;
-  // props:
-  // - all of the users selections
 
-  // state
-  // - array of questions
-  // - current question
-  // - num questions correct
   useEffect(() => {
     let url = `https://opentdb.com/api.php?amount=${numQuestions}`;
     if (category !== 'Any') {
@@ -37,29 +30,27 @@ const Game = () => {
         console.log(data)
       })
       .catch(err => alert("ERROR:", err))
-  }, [])
+  }, [numQuestions, category, difficulty, type])
 
-  const handleClick = () => {
+  const handleClick = (event, correct) => {
+    event.preventDefault();
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setQuestionsAnswered([...questionsAnswered, correct])
   }
  
   return (
     currentQuestionIndex >= numQuestions ? 
-    <Dashboard /> :
-    <>
-      <div>
-        
-        {questions.map((question, idx) => {
-          if (idx === currentQuestionIndex) {
-            return <Question question={question} />;
-          }
-          else {
-            return <></>
-          }
-        })}
-      </div>
-      <button onClick={handleClick}>Next Question</button>
-    </>
+    <Dashboard questionsAnswered={questionsAnswered}/> :
+    <div className='question-container'>
+      {questions.map((question, idx) => {
+        if (idx === currentQuestionIndex) {
+          return <Question key={idx} question={question} handleClick={handleClick}/>;
+        }
+        else {
+          return <></>
+        }
+      })}
+    </div>
 
   )
 }
