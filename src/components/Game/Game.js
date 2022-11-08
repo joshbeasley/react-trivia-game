@@ -11,13 +11,7 @@ const Game = () => {
 
   const location = useLocation();
   const { numQuestions, category, difficulty, type } = location.state;
-  // props:
-  // - all of the users selections
 
-  // state
-  // - array of questions
-  // - current question
-  // - num questions correct
   useEffect(() => {
     let url = `https://opentdb.com/api.php?amount=${numQuestions}`;
     if (category !== 'Any') {
@@ -46,7 +40,7 @@ const Game = () => {
  
   return (
     currentQuestionIndex >= numQuestions ? 
-    <Dashboard /> :
+    <Dashboard questionsAnswered={questionsAnswered}/> :
     <div className='question-container'>
       {questions.map((question, idx) => {
         if (idx === currentQuestionIndex) {
