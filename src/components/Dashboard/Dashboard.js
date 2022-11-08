@@ -9,13 +9,13 @@ import './Dashboard.css'
 
 
 //-------------Dashboard-----------------------//
-const Dashboard = () => {
+const Dashboard = (
+  {questionsAnswered}
+) => {
 const navigate = useNavigate();
   // props
   // - num questions correct
   // - num total questions 
-
-const questionsAnswered = [1, 1, 1, 1, 1, 0, 1, 1, 1, 0];
 
 let total = 0;
 for(let i = 0; i < questionsAnswered.length; i++) {
@@ -25,17 +25,25 @@ var avg = total / questionsAnswered.length * 100;
 var wrong = 100 - avg 
 
 //----------------Pie Chart--------------------//
-  
+
+
   return (
     <>
       {/* Dashboard Average */}
-      <div>You scored {avg}%! </div>
+      <div className="work">You scored!</div>
       {/* Pie Chart */}
-      <div className="pie" style={{"--p:20:--c":"red"}}> {avg}%</div>
-      <div className="pie animate" style={{"--p:90:--c":"lightgreen"}}> {wrong}%</div>
-      {/* Pie Chart */}
+      <svg viewBox="0 0 36 36" class="circular-chart">
+        <path className="circle"
+        strokeDasharray={`${avg}, 100`}
+        d="M18 2.0845
+        a 15.9155 15.9155 0 0 1 0 31.831
+        a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+        <text x="6.25" y="20.35" className="percentage" fontSize=".65rem" fill="#09ed24">{avg}%</text>
+      </svg>
       {/* Dashboard Home Button */}
-      <button onClick={() => {navigate('/',)}}>Home</button>
+      <div className="button"><button onClick={() => {navigate('/',)}}>Main Menu</button></div>
+      
     </>
   )
 
