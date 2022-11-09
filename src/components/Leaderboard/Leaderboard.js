@@ -1,34 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import './Leaderboard.css'
 
-
 const Leaderboard = () => {
+  const [result, setResult] = useState([])
 
-//   const [name, setName] = useState([]);
-//   const [avg, setAvg] = useState([]);
- 
+  useEffect(() => {
+    let array = []
+    let keys = Object.keys(localStorage)
+    for (let i = 0; i < keys.length; i++) {
+      array.push(JSON.parse(localStorage.getItem(keys[i])));
+    }
+    array.sort((a, b) => (a.avg > b.avg) ? -1 : 1)
+    setResult(array)
+  }, []);
 
-//   useEffect(() => {
-//     function forEachKey(callback) {
-//       for (let i = 0; i < localStorage.length; i++) {
-//         callback(localStorage.key(i));
-//       }
-//     }
-
-//     for (let i = 0; i < localStorage.length; i++) {
-//       console.log(localStorage.getItem(localStorage.key(i)));
-//     }
-
-
-//   }, []);
-  
-//   return (
-//     <>
-//       <div className="Ltext">Leaderboard</div>
-//       {/* <div className="Ltext2">{keys}</div> */}
-//     </>
-//   )
+  return (
+    <div className="leaderboard-container">
+      <div className="ltext">Leaderboard</div>
+      <ol className="ltext2">{result.map((r) => <li>{r.name}: {r.avg}%</li>)}</ol>
+    </div>
+  )
 }
-
 
 export default Leaderboard

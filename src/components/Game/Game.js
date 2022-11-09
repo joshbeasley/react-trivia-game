@@ -9,12 +9,14 @@ const Game = () => {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
+<<<<<<< HEAD
   const [loading , setLoading] = useState(true);
 
+=======
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
   const location = useLocation();
   console.log(location);
   const { numQuestions, category, difficulty, type } = location.state;
-
   useEffect(() => {
     let url = `https://opentdb.com/api.php?amount=${numQuestions}`;
     if (category !== 'Any') {
@@ -34,7 +36,6 @@ const Game = () => {
       })
       .catch(err => alert("ERROR:", err))
   }, [numQuestions, category, difficulty, type])
-
   const handleClick = (event, correct) => {
     event.preventDefault();
     setCurrentQuestionIndex(currentQuestionIndex + 1);

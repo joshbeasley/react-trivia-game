@@ -6,8 +6,6 @@ import './Dashboard.css';
 
 //-------------Dashboard-----------------------//
 
-
-
 const Dashboard = (
   { questionsAnswered }
 ) => {
@@ -51,12 +49,10 @@ const Dashboard = (
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [avg, setAvg] = useState(0);
   const [insult, setInsult] = useState('');
-
 
   useEffect(() => {
     let total = 0;
@@ -70,50 +66,51 @@ const Dashboard = (
       if (avg < 70)
         setInsult(insults[getRandomInt(0, 29)])
     }
-
     setAvg(avg);
-
   }, [])
 
   //----------------Name/Score Leaderboard input--------------------//
-
-  
 
   const handleChange = (event) => {
     setName(event.target.value);
   }
 
   const handleClick = (event) => {
-    localStorage.setItem(JSON.stringify(name), JSON.stringify(name));
-    localStorage.setItem(JSON.stringify(name) + '-avg', JSON.stringify(avg));
+    let item = { "name": name, "avg": avg }
+    localStorage.setItem(JSON.stringify(name), JSON.stringify(item));
     navigate('/',)
   }
-  
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
   return (
     <>
-      {/* Dashboard Average */}
-      <div className="text">{insult}</div>
-      <div className="text2">{`You Scored`}</div>
-      {/* Pie Chart */}
-      <svg viewBox="0 0 36 36" class="circular-chart">
-        <path className="circle"
-          strokeDasharray={`${avg}, 100`}
-          d="M18 2.0845
+      <div className="dashboard">
+        {/* Dashboard Average */}
+        <div className="text">{insult}</div>
+        <div className="text2">{`You Scored`}</div>
+        {/* Pie Chart */}
+        <svg viewBox="0 0 36 36" class="circular-chart">
+          <path className="circle"
+            strokeDasharray={`${avg}, 100`}
+            d="M18 2.0845
             a 15.9155 15.9155 0 0 1 0 31.831
             a 15.9155 15.9155 0 0 1 0 -31.831"
-        />
-        <text x="6.25" y="20.35" className="percentage" fontSize=".65rem" fill="#09ed24">{avg}%</text>
-      </svg>
-      {/* Dashboard Home Button */}
-      <div className="enter-name">
-        <div class="form-group">
-          <input type="text" class="form-control" id="name-input" placeholder="Enter name" onChange={handleChange} value={name} />
+          />
+          <text x="6.25" y="20.35" className="percentage" fontSize=".65rem" fill="rgb(0, 200, 255)">{avg}%</text>
+        </svg>
+        {/* Dashboard Home Button */}
+        <div className="enter-name">
+          <div class="form-group">
+            <input type="text" class="form-control" id="name-input" placeholder="Enter name" onChange={handleChange} value={name} />
+          </div>
+          <button type="button" className="btn btn-dark" onClick={handleClick}>Submit Name</button>
         </div>
-        <button type="button" className="btn btn-dark btn-lg" onClick={handleClick}>Submit Name</button>
-      </div>
 
-      
+      </div>
     </>
   )
-  }
+}
+
 export default Dashboard

@@ -5,11 +5,9 @@ import styled from "styled-components";
 import { decode } from 'html-entities';
 
 const Radio = styled.div`
-  color: ${props => props.correct ? "green" : "red"};
+  color: ${props => props.correct ? "#39FF14" : "#FF3131"};
 `;
-
 const Question = ({ question, handleClick, currentQuestionIndex, numQuestions }) => {
-
   const shuffleAnswers = () => {
     let incorrect_answers = question.incorrect_answers.map(answer => decode(answer));
     let answers = [...incorrect_answers, decode(question.correct_answer)];
@@ -23,7 +21,6 @@ const Question = ({ question, handleClick, currentQuestionIndex, numQuestions })
   const [answered, setAnswered] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [renderButton, setRenderButton] = useState('');
-
   const handleSubmitClick = (event) => {
     event.preventDefault();
     console.log(currentQuestionIndex + 1, numQuestions)
@@ -38,21 +35,17 @@ const Question = ({ question, handleClick, currentQuestionIndex, numQuestions })
       setAnswered(true);
     }
   }
-
   const handleNextQuestionClick = (event) => {
     handleClick(event, correct);
   }
-
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
-
   const handleChange = (e) => {
     let newState = Array(answers.length).fill(false);
     newState[e.target.value] = true;
     setButtons(newState);
   };
-
   return (
     <div className="question">
       <div className="top-bar">
@@ -60,7 +53,6 @@ const Question = ({ question, handleClick, currentQuestionIndex, numQuestions })
         <div>Question: {currentQuestionIndex + 1}/{numQuestions}</div>
         <div>Difficulty: {capitalizeFirst(question.difficulty)}</div>
       </div>
-
       <div className="question-text" style={{ fontWeight: "bolder" }}>Question: {decode(question.question)}</div>
       <div onChange={handleChange}>
         {answers.map((answer, index) => {
@@ -109,8 +101,8 @@ const Question = ({ question, handleClick, currentQuestionIndex, numQuestions })
       <div className="buttons">
         <Link to='/'><button className="btn btn-danger btn-lg px-5">Give up</button></Link>
         {!answered ? <button className="btn btn-primary btn-lg px-5" onClick={handleSubmitClick}>Submit</button>
-        : currentQuestionIndex + 1 == numQuestions ? <button className="btn btn-primary btn-lg px-5" onClick={handleNextQuestionClick}>View Results</button>
-        : <button className="btn btn-primary btn-lg px-5" onClick={handleNextQuestionClick}>Next Question</button>}
+          : currentQuestionIndex + 1 == numQuestions ? <button className="btn btn-primary btn-lg px-5" onClick={handleNextQuestionClick}>View Results</button>
+            : <button className="btn btn-primary btn-lg px-5" onClick={handleNextQuestionClick}>Next Question</button>}
       </div>
     </div>
   );

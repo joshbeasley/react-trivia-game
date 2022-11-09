@@ -1,3 +1,7 @@
+ReacTrivia is a trivia game that you can select different categories, difficulty, and number of questions and generate the trivia game based on the selected paramenters.
+In ReacTrivia you can post highscores on the leaderboard and compete with other players.  
+ReacTrivia also has a question set of the day that randomly selects a different category and question set each day.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
