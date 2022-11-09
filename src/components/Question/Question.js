@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { decode } from 'html-entities';
 
 const Radio = styled.div`
-  color: ${props => props.correct ? "green" : "red"};
+  color: ${props => props.correct ? "#39FF14" : "#FF3131"};
 `;
 const Question = ({ question, handleClick, currentQuestionIndex, numQuestions }) => {
   const shuffleAnswers = () => {

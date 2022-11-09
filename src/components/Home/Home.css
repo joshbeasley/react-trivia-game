@@ -7,7 +7,7 @@
   border-radius: 10px;
   padding: 50px;
   border: solid rgb(0, 200, 255);
-  color: white;
+  color: rgb(0, 200, 255);
 }
 
 .form-group{
@@ -17,5 +17,8 @@
 .button {
   text-align: center;
   padding-top: 30px;
-  color:white;
+  color:rgb(0, 200, 255);
+}
+.text-color {
+  color: rgb(0, 152, 194) !important;
 }

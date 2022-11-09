@@ -28,7 +28,7 @@ const Home = () => {
         <div className="form-group">
           <label htmlFor="enter-num-questions">Number of Questions:</label>
           <input type='number' className="form-control" id="enter-num-questions" placeholder="10" value={numQuestions} onChange={handleQuestionsChange} />
-          <small id="emailHelp" className="form-text">Each trivia game can be played with up to 50 questions</small>
+          <small id="emailHelp" className="form-text text-color" >Each trivia game can be played with up to 50 questions</small>
         </div>
         <div className="form-group">
           <label htmlFor="select-category">Select Category:</label>
