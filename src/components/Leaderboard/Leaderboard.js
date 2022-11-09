@@ -1,8 +1,8 @@
-// import React, { useState, useEffect } from 'react'
-// import './Leaderboard.css'
+import React, { useState, useEffect } from 'react'
+import './Leaderboard.css'
 
 
-// const Leaderboard = () => {
+const Leaderboard = () => {
 
 //   const [name, setName] = useState([]);
 //   const [avg, setAvg] = useState([]);
@@ -28,7 +28,7 @@
 //       {/* <div className="Ltext2">{keys}</div> */}
 //     </>
 //   )
-// }
+}
 
 
-// export default Leaderboard
+export default Leaderboard

@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Question from '../Question/Question';
+import Dashboard from '../Dashboard/Dashboard';
+import ReactLoading from "react-loading";
 import './Game.css'
-import Dashboard from '../Dashboard/Dashboard'
 
 const Game = () => {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
+  const [loading , setLoading] = useState(true);
 
   const location = useLocation();
+  console.log(location);
   const { numQuestions, category, difficulty, type } = location.state;
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const Game = () => {
       .then(res => res.json())
       .then(data => {
         setQuestions(data.results)
-        console.log(data)
+        setLoading(false);
       })
       .catch(err => alert("ERROR:", err))
   }, [numQuestions, category, difficulty, type])
@@ -36,6 +39,16 @@ const Game = () => {
     event.preventDefault();
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     setQuestionsAnswered([...questionsAnswered, correct])
+  }
+
+  if(loading){
+    return <ReactLoading
+            className="loading"
+            type={"spin"}
+            color={"lightgrey"}
+            height={100}
+            width={100}
+            />
   }
  
   return (
