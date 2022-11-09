@@ -96,7 +96,6 @@ const Dashboard = (
   return (
     <>
       {/* Dashboard Average */}
-<<<<<<< HEAD
       <div className="text">{insult}</div>
       <div className="text2">{`You Scored`}</div>
       {/* Pie Chart */}
@@ -118,27 +117,7 @@ const Dashboard = (
       </div>
 
       
-=======
-      <div>You scored {avg}%! </div>
-      {/* Pie Chart */}
-      <div className="pie" style={{"--p:20:--c":"red"}}> {avg}%</div>
-      <div className="pie animate" style={{"--p:90:--c":"lightgreen"}}> {wrong}%</div>
-      {/* Pie Chart */}
-      {/* Dashboard Home Button */}
-      <button onClick={() => {navigate('/',)}}>Home</button>
->>>>>>> 643922555657f363137ab679c7992e8cfc61a22c
     </>
   )
-
-<<<<<<< HEAD
-export default Dashboard
-=======
   }
-  // style={{ float:`left` }}  // Object literal notation
-
-//-------------Dashboard------------//
 export default Dashboard
-
-//-------------Pie Chart------------//
-// export default class App extends React.Component
->>>>>>> 643922555657f363137ab679c7992e8cfc61a22c
