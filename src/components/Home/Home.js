@@ -4,26 +4,11 @@ import { useState } from 'react'
 import './Home.css'
 
 const Home = () => {
-  
+
   const [numQuestions, setNumQuestions] = useState(10);
   const [category, setCategory] = useState('Any');
   const [difficulty, setDifficulty] = useState('Any');
   const [type, setType] = useState('Any');
-  
-  // state:
-  // - numQuestions
-  // - category
-  // - difficulty
-  // - type
-
-  // handleChangeQuestions
-  // handleChangeCategory
-  // handleChangeDifficulty
-  // handleChangeType
-
-  // return
-  // Link that passes all of Home's State to Game
-
   const handleQuestionsChange = (event) => {
     setNumQuestions(event.target.value);
   }
@@ -42,7 +27,7 @@ const Home = () => {
       <form>
         <div className="form-group">
           <label htmlFor="enter-num-questions">Number of Questions:</label>
-          <input type='number' className="form-control" id="enter-num-questions" placeholder="10" value={numQuestions} onChange={handleQuestionsChange}/>
+          <input type='number' className="form-control" id="enter-num-questions" placeholder="10" value={numQuestions} onChange={handleQuestionsChange} />
           <small id="emailHelp" className="form-text">Each trivia game can be played with up to 50 questions</small>
         </div>
         <div className="form-group">
@@ -85,7 +70,7 @@ const Home = () => {
           </select>
         </div>
         <div className="form-group">
-        <label htmlFor="select-type">Select Type:</label>
+          <label htmlFor="select-type">Select Type:</label>
           <select className="form-select" aria-label="Default select example" id='select-type' value={type} onChange={handleTypeChange}>
             <option value="ANY">ANY</option>
             <option value="multiple">MULTIPLE CHOICE</option>
