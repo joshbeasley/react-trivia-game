@@ -80,6 +80,10 @@ const Dashboard = (
     localStorage.setItem(JSON.stringify(name), JSON.stringify(item));
     navigate('/',)
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
   return (
     <>
       <div className="dashboard">

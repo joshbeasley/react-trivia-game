@@ -9,8 +9,11 @@ const Game = () => {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
+<<<<<<< HEAD
   const [loading , setLoading] = useState(true);
 
+=======
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
   const location = useLocation();
   console.log(location);
   const { numQuestions, category, difficulty, type } = location.state;

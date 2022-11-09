@@ -2,7 +2,10 @@ body {
   background-image: url("https://user-images.githubusercontent.com/111238515/200031490-e4215b99-ada9-47b8-9087-63d3b0c30320.png");
   background-size: cover;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
 .dashboard {
   padding: 20px;
   border-radius: 10px;
@@ -13,7 +16,10 @@ body {
   margin-right: auto;
   width: 50%;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
 .text {
   text-align: center;
   color: rgb(0, 200, 255);
@@ -21,10 +27,17 @@ body {
 }
 
 .text2 {
+<<<<<<< HEAD
   text-align: center;
   color: rgb(0, 200, 255);
   font-size: 40px;
 }
+=======
+    text-align: center;
+    color: rgb(0, 200, 255);
+    font-size: 40px;
+  }
+>>>>>>> 97f034dc40248575993a33633a6c887f766accb3
 
 .circular-chart {
   display: block;
