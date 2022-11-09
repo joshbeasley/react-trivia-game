@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import './Leaderboard.css'
+// import React, { useState, useEffect } from 'react'
+// import './Leaderboard.css'
 
 
-const Leaderboard = () => {
+// const Leaderboard = () => {
 
-  // const [name, setName] = useState([]);
-  // const [avg, setAvg] = useState([]);
+//   const [name, setName] = useState([]);
+//   const [avg, setAvg] = useState([]);
  
 
-  // useEffect(() => {
-  //   // const name = JSON.parse(localStorage.getItem(name));
-  //   // const avg = JSON.parse(localStorage.getItem('avg'));
-  //   // let keys = Object.keys(localStorage);
+//   useEffect(() => {
+//     function forEachKey(callback) {
+//       for (let i = 0; i < localStorage.length; i++) {
+//         callback(localStorage.key(i));
+//       }
+//     }
 
-  //   // if (keys) {
-  //   //  setName(name);
-  //   // }
-  //   // if (avg) {
-  //   //   setAvg(avg);
-  //   // }
-  // }, []);
+//     for (let i = 0; i < localStorage.length; i++) {
+//       console.log(localStorage.getItem(localStorage.key(i)));
+//     }
+
+
+//   }, []);
   
-  return (
-    <>
-      <div className="Ltext">Leaderboard</div>
-      {/* <div className="Ltext2">{keys}</div> */}
-    </>
-  )
-}
+//   return (
+//     <>
+//       <div className="Ltext">Leaderboard</div>
+//       {/* <div className="Ltext2">{keys}</div> */}
+//     </>
+//   )
+// }
 
 
-export default Leaderboard
+// export default Leaderboard
