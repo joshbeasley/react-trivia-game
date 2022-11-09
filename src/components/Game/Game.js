@@ -14,7 +14,6 @@ const Game = () => {
   const location = useLocation();
   console.log(location);
   const { numQuestions, category, difficulty, type } = location.state;
-
   useEffect(() => {
     let url = `https://opentdb.com/api.php?amount=${numQuestions}`;
     if (category !== 'Any') {
@@ -34,7 +33,6 @@ const Game = () => {
       })
       .catch(err => alert("ERROR:", err))
   }, [numQuestions, category, difficulty, type])
-
   const handleClick = (event, correct) => {
     event.preventDefault();
     setCurrentQuestionIndex(currentQuestionIndex + 1);
