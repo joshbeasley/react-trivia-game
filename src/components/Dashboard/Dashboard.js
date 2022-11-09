@@ -88,10 +88,6 @@ const Dashboard = (
     localStorage.setItem(JSON.stringify(name) + '-avg', JSON.stringify(avg));
     navigate('/',)
   }
-
-  //----------------Pie Chart--------------------//
-
-//----------------Pie Chart--------------------//
   
   return (
     <>
