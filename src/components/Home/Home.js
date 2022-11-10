@@ -24,6 +24,16 @@ const Home = () => {
 
   return (
     <div className='form'>
+      <div className='title-block'>
+        <img src="https://user-images.githubusercontent.com/110724575/200665997-c1bf185a-37d8-48ea-a139-faf27c40c4d9.png" width="150"/>
+        <div>
+          <h1>Welcome to ReacTrivia</h1>
+          <p>ReacTrivia is a free-to-play trivia experience designed to help you sharpen your mind and outsmart your friends.
+            You have a variety of trivia categories, difficulties, and question types to choose from, so feel free to make your
+            selection below and get started!  </p>
+        </div>
+        <img src="https://user-images.githubusercontent.com/110724575/200665997-c1bf185a-37d8-48ea-a139-faf27c40c4d9.png" width="150"/>
+      </div>
       <form>
         <div className="form-group">
           <label htmlFor="enter-num-questions">Number of Questions:</label>
@@ -39,7 +49,7 @@ const Home = () => {
             <option value="16">BOARD GAMES</option>
             <option value="10">BOOKS</option>
             <option value="32">CARTOON & ANIMIATIONS</option>
-            <option value="26">CELEBITIES</option>
+            <option value="26">CELEBRITIES</option>
             <option value="29">COMICS</option>
             <option value="18">COMPUTERS</option>
             <option value="11">FILM</option>
@@ -72,7 +82,7 @@ const Home = () => {
         <div className="form-group">
           <label htmlFor="select-type">Select Type:</label>
           <select className="form-select" aria-label="Default select example" id='select-type' value={type} onChange={handleTypeChange}>
-            <option value="ANY">ANY</option>
+            <option value="Any">ANY</option>
             <option value="multiple">MULTIPLE CHOICE</option>
             <option value="boolean">TRUE/FALSE</option>
           </select>

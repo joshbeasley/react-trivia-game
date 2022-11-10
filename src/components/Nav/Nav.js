@@ -20,10 +20,9 @@ const Nav = () => {
     var yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
     today = hashCode(today);
-    console.log(today)
     let category = today % 23 + 9;
 
-    return {numQuestions: 10, category: category, difficulty: 'hard', type: 'multiple'}
+    return {numQuestions: 10, category: category, difficulty: 'hard', type: 'Any'}
   }
 
   useEffect(() => {

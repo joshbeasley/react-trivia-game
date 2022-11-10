@@ -11,32 +11,32 @@ const Dashboard = (
 ) => {
 
   const insults = [
-    "I am sick when I do look on thee.",
+    "[This insult was redacted by George]",
     "You're so dumb you thought a quarterback was a refund",
-    "You look like a before picture.",
-    "If you were born a baby in ancient Sparta, you would have been thrown off a cliff.",
+    "Look on the bright side. You could always join the military",
+    "Not even the Marines would take you...",
     "You haven't been yourself lately. We've all noticed the improvement.",
     "You are impossible to underestimate.",
-    "You're such a waste of time, can you at least give me my 60 seconds back?",
+    "You're such a waste of time, I should've made you pay for this.",
     "If you were be a spice, you'd be flour.",
     "Whoever told you to be yourself couldn't have given you worse advice.",
     "You're so stupid, you failed a blood test.",
-    "Your family is from the shallow end of the gene pool, isn't it?",
+    "You got a 7 on the ACT didnt you?",
     "I'd challenge you to a battle of wits, but I see you're unarmed.",
-    "Your gene pool could use a bit more chlorine.",
+    "You are NOT smarter than a 5th grader.",
     "Your mother was a hamster and your father smelled of elderberries.",
     "I'm guessing you weren't burdened with an overabundance of schooling.",
-    "Thou leathern-jerkin, crystal-button, knot-pated, agatering, puke-stocking, caddis-garter, smooth-tongue, Spanish pouch!",
+    "It's OK your chances of getting into a Community College are like... 73%!",
     "Tsk....dingus",
-    "I've seen people like you before, but I had to pay admission.",
+    "Bad Show! Very Bad Show!",
     "Even an empty petri dish is more cultured than you.",
-    "I would slap you but that would be animal abuse.",
-    "Were you raised to be this stupid or is it in the DNA?",
-    "If I wanted to kill myself, I would climb to the number of your chromosomes and then jump to your IQ.",
+    "You know, I'm pretty sure Burger King is hiring...",
+    "We can't all be docters...",
+    "Congrats!!! you have the same IQ as a squid.",
     "Everyone in this room is now dumber for having listened to you. I award you no points, and may God have mercy on your soul",
     "Why don't you check up on eBay and see if they have some 1st grade textbooks for sale.",
     "Next time you go out, take a sentient being with you.",
-    "I wondered why all the birds suddenly stopped singing. What brings you here?",
+    "Your brain is as smooth as a bowling ball.",
     "You are the human equivalent of a participation award.",
     "If your brain was donated to science, science would return it.",
     "You, my friend, are a piece of foam.",
@@ -74,16 +74,11 @@ const Dashboard = (
   const handleChange = (event) => {
     setName(event.target.value);
   }
-
   const handleClick = (event) => {
     let item = { "name": name, "avg": avg }
     localStorage.setItem(JSON.stringify(name), JSON.stringify(item));
-    navigate('/',)
+    navigate('/Leaderboard',)
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 97f034dc40248575993a33633a6c887f766accb3
   return (
     <>
       <div className="dashboard">
@@ -107,7 +102,6 @@ const Dashboard = (
           </div>
           <button type="button" className="btn btn-dark" onClick={handleClick}>Submit Name</button>
         </div>
-
       </div>
     </>
   )

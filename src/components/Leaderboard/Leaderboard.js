@@ -17,7 +17,19 @@ const Leaderboard = () => {
   return (
     <div className="leaderboard-container">
       <div className="ltext">Leaderboard</div>
-      <ol className="ltext2">{result.map((r) => <li>{r.name}: {r.avg}%</li>)}</ol>
+      <ol className="ltext2">
+        {result.map((r, index) => {
+            if (index === 0){
+              return <li style={{color: 'gold'}}>🥇{r.name}: {r.avg}%</li>
+            } else if (index === 1){
+              return <li style={{color: 'silver'}}>🥈{r.name}: {r.avg}%</li>
+            } else if (index === 2){
+              return <li style={{color: '#CD7F32'}}>🥉{r.name}: {r.avg}%</li>
+            } else {
+              return <li>{r.name}: {r.avg}%</li>
+            }
+        })}
+      </ol>
     </div>
   )
 }
